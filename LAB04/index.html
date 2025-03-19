@@ -60,20 +60,12 @@
       <td>魏志達</td>
     </tr>
   </table>
-  
     <button onclick="changeResult()">Change</button>
-
-    <script>
-        function changeResult() {
-            var myTable = document.getElementById("csie");
-            for (var i = 1; i < myTable.rows.length; i++) {
-                if (myTable.rows[i].cells[2].innerHTML === "黃崇源") {
-                    myTable.rows[i].cells[2].innerHTML = "李春良";
-                    break; // 只改第一個找到的
-                }
-            }
-        }
+     <script> 
+      function changeResult() { 
+        var myTable = document.getElementById("csie"); 
+        myTable.rows[1].cells[2].innerHTML = "李春良"; 
+      }
     </script>
-
 </body>
 </html>
