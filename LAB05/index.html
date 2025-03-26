@@ -2,32 +2,41 @@
 <head>
 </head>
 <body>
+    <pre id="tree-output"></pre> <!-- 使用 pre 確保格式 -->
     <script>
-                 function tree(n) {
-              printTreeTop(n);
-              printTreeBottom(n);
-          }
+        function tree(n) {
+            let treeText = ""; // 存放聖誕樹的變數
 
-          function printTreeTop(n) {
-              for (let i = 0; i < n; i++) {
-                  let spaces = repeatchar(n - i - 1, ' ');
-                  let stars = repeatchar(2 * i + 1, '*');
-                  console.log(spaces + stars);
-              }
-          }
+            treeText += printTreeTop(n);
+            treeText += printTreeBottom(n);
 
-          function printTreeBottom(n) {
-            for(let i = 0;i < n-1;i++){
-              let spaces = repeatchar(n - 1, ' ');
-              console.log(spaces + '*');
+            document.getElementById("tree-output").innerText = treeText; // 讓 pre 保持格式
+        }
+
+        function printTreeTop(n) {
+            let result = "";
+            for (let i = 0; i < n; i++) {
+                let spaces = repeatchar(n - i - 1, ' '); // 確保空格數量正確
+                let stars = repeatchar(2 * i + 1, '*');
+                result += spaces + stars + '\n';
             }
-          }
+            return result;
+        }
 
-          function repeatchar(n, arg_char) {
-              return arg_char.repeat(n);
-          }
+        function printTreeBottom(n) {
+            let result = "";
+            let spaces = repeatchar(n - 1, ' '); // 樹幹應該與樹尖對齊
+            for (let i = 0; i < n - 1; i++) { // 樹幹高度 n-1
+                result += spaces + '*' + '\n';
+            }
+            return result;
+        }
 
-          tree(4)
+        function repeatchar(n, char) {
+            return char.repeat(n);
+        }
+
+        tree(4); // 你可以更改數字來測試不同高度
     </script>
 </body>
 </html>
