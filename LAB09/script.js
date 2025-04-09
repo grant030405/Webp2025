@@ -11,6 +11,14 @@ xhr.onreadystatechange = function() {
   }
 };
 
+function delOldData() {
+  var myTable = document.getElementById("csie");
+  var rowCount = myTable.rows.length;
+  if (rowCount > 1) {
+    var row = myTable.deleteRow(rowCount - 1);
+  }
+}
+
 function addNewData(dataset) {
   var myTable = document.getElementById("csie");
   dataset.forEach(function(data, index) {
